@@ -57,7 +57,6 @@ class MoviesAPIService {
             
             do {
                 let apiResponse = try JSONDecoder().decode(MovieListAPIResponse.self, from: data)
-                print(apiResponse)
                 return apiResponse
             }
             catch {
@@ -93,15 +92,12 @@ class MoviesAPIService {
             
             do {
                 let apiResponse = try JSONDecoder().decode(MovieDetailAPIResponse.self, from: data)
-                print(apiResponse)
                 return apiResponse
             }
             catch {
-                print(error)
                 throw MoviesAPIServiceError.decodingError
             }
         } catch {
-            print(error)
             throw MoviesAPIServiceError.networkError(error)
         }
     }
